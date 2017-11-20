@@ -5,12 +5,20 @@
 <title>Demo</title>
 
 <script src="javascript/vendor/jquery-3.1.1.min.js"></script>
+<script src="javascript/app/cloud.js"></script>
 <script src="javascript/app/config.js"></script>
 <script src="javascript/app/controller.js"></script>
 
 </head>
 <body>
 	<div id="message-content"></div>
+	
+	<br></br>
+	
+	<textarea id="text_area" rows="4" cols="50"></textarea>
+	<button type="button" onclick="appController().send();">Send</button>
+	
+	
 
 </body>
 </html>
