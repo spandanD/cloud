@@ -30,6 +30,11 @@
   		<artifactId>jersey-container-servlet-core</artifactId>
   		<version>2.25</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.sdas.cloud</groupId>
+  		<artifactId>cloud-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   <build>
     <finalName>cloud-sample</finalName>

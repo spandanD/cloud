@@ -2,17 +2,20 @@ package org.sdas.cloud.asynchronous.sample.async.ws;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Queue;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.AsyncEvent;
 import javax.servlet.AsyncListener;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.sdas.cloud.core.CloudFramework;
+import org.sdas.cloud.core.CloudFrameworkInitializer;
 
 @WebServlet(name="asyncServlet" , urlPatterns="/async" , asyncSupported= true)
 public class AsyncEventService extends HttpServlet{
@@ -41,6 +44,12 @@ public class AsyncEventService extends HttpServlet{
 		@SuppressWarnings("unchecked")
 		Queue<String> messages = (Queue<String>) servletContext.getAttribute("messages");
 		messages.offer(sb.toString());		
+	}
+	
+	@Override
+	public void init(ServletConfig sc){
+		CloudFramework cloudFramework = new CloudFrameworkInitializer();
+		cloudFramework.initialize(sc.getServletContext());
 	}
 	
 	private class AysncListenerImpl implements AsyncListener{
