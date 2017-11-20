@@ -1,6 +1,6 @@
-function Cloud(url, successCallback){
-	var url = url;
-	var successCallback;
+function Cloud(request){
+	var url = request.url;
+	var successCallback = request.successCallback;
 	
 	return{
 		subscribe: subscribe,
@@ -13,11 +13,14 @@ function Cloud(url, successCallback){
 	
 	function fetch(successCallback){
 		$.ajax({
-			url: url + "?rnd=1" + new Date().getTime(),
+			url: url + "?rnd=" + new Date().getTime(),
 			type: "GET",
 			success: function(data){
 				successCallback(data);
 				fetch(successCallback);
+			},
+			error: function(data, response){
+				console.log("Could not fetch data due to:" + response);
 			}
 		});
 	}
@@ -29,6 +32,9 @@ function Cloud(url, successCallback){
 			data: data,
 			success: function(data){
 				console.log(data);
+			},
+			error: function(data, response){
+				console.log("Could not publish data due to:" + response);
 			}
 		});
 	}
