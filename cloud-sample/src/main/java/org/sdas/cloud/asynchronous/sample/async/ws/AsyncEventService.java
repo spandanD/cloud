@@ -1,6 +1,8 @@
 package org.sdas.cloud.asynchronous.sample.async.ws;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Queue;
 
 import javax.servlet.AsyncContext;
@@ -17,14 +19,28 @@ public class AsyncEventService extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
-	@SuppressWarnings("unchecked")
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		AsyncContext asyncContext = request.startAsync(request,response);
-		asyncContext.setTimeout(10000);
+		asyncContext.setTimeout(100000);
 		asyncContext.addListener(new AysncListenerImpl());
 		ServletContext servletContext = request.getServletContext();
+		@SuppressWarnings("unchecked")
 		Queue<AsyncContext> suspendedRequestQueue = (Queue<AsyncContext>) servletContext.getAttribute("suspendedRequests");
 		suspendedRequestQueue.offer(asyncContext);
+	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		StringBuilder sb = new StringBuilder();
+		BufferedReader reader = request.getReader();
+		String line = reader.readLine();
+		while (line != null){
+			sb.append(line);
+			line = reader.readLine();
+		}
+		ServletContext servletContext = request.getServletContext();
+		@SuppressWarnings("unchecked")
+		Queue<String> messages = (Queue<String>) servletContext.getAttribute("messages");
+		messages.offer(sb.toString());		
 	}
 	
 	private class AysncListenerImpl implements AsyncListener{
