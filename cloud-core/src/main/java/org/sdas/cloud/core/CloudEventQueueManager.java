@@ -5,8 +5,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class CloudEventQueueManager {
 
@@ -27,8 +25,12 @@ public class CloudEventQueueManager {
 	}
 
 
-	public void setSuspendedRequestQueue(Queue<AsyncContext> suspendedRequestQueue) {
-		this.suspendedRequestQueue = suspendedRequestQueue;
+	public boolean offer(AsyncContext suspendedRequest) {
+		return suspendedRequestQueue.offer(suspendedRequest);
+	}
+	
+	public boolean queueEvent(String message){
+		return events.offer(message);
 	}
 
 
