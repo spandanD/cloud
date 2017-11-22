@@ -1,0 +1,22 @@
+Backend
+	Features
+		1. Channels
+		2. Broadcaster
+		3. CloudService, with URL redirect
+		4. Dependency injection with Guice
+		5. Annotations like REST CHAT
+		6. MIME type
+		7. Write any content to suspended connections
+		8. Private room (subset of suspended connections)
+		9. Overflow considerations in queue
+		10. EventListener
+		
+		 
+Frontend
+		1. CSS for UI
+		2. Username prompt
+	
+	
+Performance
+		1. Use thread pool to broadcast to suspended connections
+		2. Jmeter profiling
