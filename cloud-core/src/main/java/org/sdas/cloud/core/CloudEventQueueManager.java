@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletContext;
 
+@Deprecated
 public class CloudEventQueueManager {
 
 	private final static String REQUEST_ALIAS = "suspendedRequests";
