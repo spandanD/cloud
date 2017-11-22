@@ -17,11 +17,11 @@ public class ChannelBroadcasterRunnable implements Runnable{
 	}
 	
 	public void run() {
-		AsyncContext asyncContext = channelStreamer.getAsyncContext();
-		Channel<?> channel = channelStreamer.getChannel();
-		Object content = channel.getContent();
-		logger.info("Broadcasting {} using thread: {}" , content, Thread.currentThread().getName());		
 		try{
+			AsyncContext asyncContext = channelStreamer.getAsyncContext();
+			Channel<?> channel = channelStreamer.getChannel();
+			Object content = channel.getContent();
+			logger.info("Broadcasting {} using thread: {}" , content, Thread.currentThread().getName());				
 			asyncContext.getResponse().getWriter().println(content);
 			asyncContext.complete();
 			logger.info("Broadcast to suspended connection complete");
