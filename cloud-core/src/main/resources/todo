@@ -18,5 +18,5 @@ Frontend
 	
 	
 Performance
-		1. Use thread pool to broadcast to suspended connections
+		1. (DONE) Use thread pool to broadcast to suspended connections
 		2. Jmeter profiling
