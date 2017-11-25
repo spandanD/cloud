@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.sdas.cloud.core.ChannelManager;
+import org.sdas.cloud.core.channel.ChannelManager;
 import org.sdas.cloud.core.entity.ChannelStreamer;
 
 public class ChannelMonitorSingleChunkRunnable implements Runnable{

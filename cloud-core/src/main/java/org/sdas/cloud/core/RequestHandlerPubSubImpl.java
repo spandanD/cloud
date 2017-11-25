@@ -4,6 +4,7 @@ import javax.servlet.AsyncContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.sdas.cloud.core.channel.ChannelService;
 import org.sdas.cloud.core.util.RequestReader;
 
 public class RequestHandlerPubSubImpl implements RequestHandler{

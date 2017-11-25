@@ -6,6 +6,9 @@ import java.util.concurrent.ScheduledExecutorService;
 
 import javax.servlet.ServletContext;
 
+import org.sdas.cloud.core.channel.ChannelManager;
+import org.sdas.cloud.core.channel.ChannelQueueImpl;
+import org.sdas.cloud.core.channel.ChannelService;
 import org.sdas.cloud.core.runnable.ChannelMonitorSingleChunkRunnable;
 
 public class CloudFrameworkInitializer implements CloudFramework 

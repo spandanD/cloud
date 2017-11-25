@@ -1,4 +1,4 @@
-package org.sdas.cloud.core;
+package org.sdas.cloud.core.channel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletContext;
 
+import org.sdas.cloud.core.CloudException;
 import org.sdas.cloud.core.entity.Channel;
 import org.sdas.cloud.core.entity.ChannelStreamer;
 

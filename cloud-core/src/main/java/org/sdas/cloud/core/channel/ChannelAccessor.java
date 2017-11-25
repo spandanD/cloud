@@ -1,4 +1,4 @@
-package org.sdas.cloud.core;
+package org.sdas.cloud.core.channel;
 
 import javax.servlet.AsyncContext;
 
