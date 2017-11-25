@@ -1,6 +1,7 @@
 function Cloud(request){
 	var url = request.url;
 	var successCallback = request.successCallback;
+	var connectionCallback = request.connectionCallback;
 	
 	return{
 		subscribe: subscribe,
@@ -12,30 +13,29 @@ function Cloud(request){
 	}
 	
 	function fetch(successCallback){
-		$.ajax({
-			url: url + "?rnd=" + new Date().getTime(),
-			type: "GET",
-			success: function(data){
-				successCallback(data);
-				fetch(successCallback);
-			},
-			error: function(data, response){
-				console.log("Could not fetch data due to:" + response);
-			}
-		});
+		var getRequest = {url: url + "?rnd=" + new Date().getTime(),
+						  method: "GET",
+						  onSuccess: reFetch,
+				          onConnect: connectionCallback};
+		var xhr = new XHRManager(getRequest);	
+		xhr.send();
+		
+		function reFetch(data){
+			successCallback(data);
+			xhr.send();
+		}
 	}
 	
 	function publish(data){
-		$.ajax({
-			url: url,
-			type: "POST",
-			data: data,
-			success: function(data){
-				console.log(data);
-			},
-			error: function(data, response){
-				console.log("Could not publish data due to:" + response);
-			}
-		});
+		var postRequest = {url: url,
+				  		  method: "POST",
+				  		  onSuccess: function(){},
+				          onError: publishError};
+		var xhr = new XHRManager(postRequest);	
+		xhr.send(data);
+
+		function publishError(responseText){
+			console.log("Could not publish data due to:" + responseText);
+		}
 	}
 }
