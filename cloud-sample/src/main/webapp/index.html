@@ -4,19 +4,57 @@
 <meta charset="ISO-8859-1">
 <title>Demo</title>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="javascript/vendor/jquery-3.1.1.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="javascript/app/xhr-manager.js"></script>
 <script src="javascript/app/cloud.js"></script>
 <script src="javascript/app/config.js"></script>
 <script src="javascript/app/controller.js"></script>
 
 </head>
 <body>
-	<div id="message-content"></div>
-	
 	<br></br>
-	
-	<textarea id="text_area" rows="4" cols="50"></textarea>
-	
+	<div class="container">
+		<div id="connection-banner" class="alert alert-success" role="alert" style="display:none">Connected to cloud using long polling!</div>
+		<br></br>
+		
+		<div id="message-content"></div>
+		<br></br>
+			
+		<textarea id="text_area" rows="4" class="form-control"></textarea>
 
+	</div>
+
+	
+	
+	<div id="usernameModal" class="modal">
+
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Choose username</h3>
+				</div>
+
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control" id="username" placeholder="Enter username">
+						</div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" onclick="controller.readUserName()">Save</button>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
 </body>
 </html>
