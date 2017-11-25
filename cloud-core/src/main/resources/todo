@@ -13,10 +13,17 @@ Backend
 		
 		 
 Frontend
-		1. CSS for UI
-		2. Username prompt
+		1. (DONE) CSS for UI
+		2. (DONE) Username prompt
+		3. (DONE) Connection information
 	
 	
 Performance
 		1. (DONE) Use thread pool to broadcast to suspended connections
 		2. Jmeter profiling
+		
+		
+Priority
+		1. Move web service to framework
+		2. UI
+		3. DI (like broadcaster)
