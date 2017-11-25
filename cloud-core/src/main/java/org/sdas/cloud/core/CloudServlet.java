@@ -11,17 +11,20 @@ public class CloudServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	private final CloudFramework cloudFramework = new CloudFrameworkInitializer();
+	private ChannelService channelService;
+	private RequestHandler requestHandler;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		cloudFramework.addRequest(request, response);
+		requestHandler.onRequest(request, response);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		cloudFramework.broadcast(request, response);
+		requestHandler.onRequest(request, response);
 	}
 	
 	@Override
 	public void init(ServletConfig sc){
-		cloudFramework.initialize(sc.getServletContext());
+		channelService = cloudFramework.initialize(sc.getServletContext());
+		requestHandler = new RequestHandlerPubSubImpl(channelService);
 	}
 }
