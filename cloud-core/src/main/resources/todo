@@ -6,7 +6,7 @@ Backend
 		4. Dependency injection with Guice
 		5. Annotations like REST CHAT
 		6. MIME type
-		7. Write any content to suspended connections
+		7. (DONE) Write any content to suspended connections
 		8. Private room (subset of suspended connections)
 		9. Overflow considerations in queue
 		10. EventListener
@@ -24,6 +24,6 @@ Performance
 		
 		
 Priority
-		1. Move web service to framework
-		2. UI
+		1. (DONE) Move web service to framework
+		2. (DONE) UI
 		3. DI (like broadcaster)

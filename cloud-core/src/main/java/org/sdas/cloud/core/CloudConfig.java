@@ -3,10 +3,10 @@ package org.sdas.cloud.core;
 import java.util.concurrent.TimeUnit;
 
 public class CloudConfig {
-	final static int DEFAULT_THREAD_POOL_SIZE = 10;
-	final static int DEFAULT_TIME_PERIOD = 100;
-	final static TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
-	final static int DEFAULT_TIMEOUT_PERIOD = 100000;
+	public final static int DEFAULT_THREAD_POOL_SIZE = 10;
+	public final static int DEFAULT_TIME_PERIOD = 100;
+	public final static TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
+	public final static int DEFAULT_TIMEOUT_PERIOD = 100000;
 	
 	private int threadPoolSize;
 	private int timePeriod;
