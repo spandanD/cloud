@@ -1,4 +1,4 @@
-package org.sdas.cloud.core;
+package org.sdas.cloud.core.deprecated;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package org.sdas.cloud.core;
+package org.sdas.cloud.core.deprecated;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
