@@ -15,6 +15,7 @@ import org.sdas.cloud.core.entity.Channel;
 import org.sdas.cloud.core.entity.ChannelStreamer;
 import org.sdas.cloud.core.runnable.ChannelBroadcasterRunnable;
 import org.sdas.cloud.core.runnable.ChannelMonitorSingleChunkRunnable;
+import org.sdas.cloud.core.util.RequestReader;
 
 
 public class CloudFrameworkInitializer implements CloudFramework 

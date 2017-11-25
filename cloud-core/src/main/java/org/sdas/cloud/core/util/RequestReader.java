@@ -1,4 +1,4 @@
-package org.sdas.cloud.core;
+package org.sdas.cloud.core.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
